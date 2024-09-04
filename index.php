@@ -2,6 +2,9 @@
 
 declare(strict_types=1);
 
+//Siguiente capitulo:
+// https://www.youtube.com/watch?v=3HmFLO29RPU&list=PLZ2ovOgdI-kUSqWuyoGJMZL6xldXw6hIg&index=12
+
 // Condicionales
 // if, else, elseif, switch, ternario, match 
 
