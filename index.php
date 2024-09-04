@@ -2,7 +2,11 @@
 
 declare(strict_types=1);
 
-$name = "Victor";
+const CURSO = "PHP 8 desde cero";
+
+const ANIMALES = ["Perro", "Gato", "Pájaro"];
+// Siguiente capítulo:
+// https://www.youtube.com/watch?v=ulYkNaB7cAQ&list=PLZ2ovOgdI-kUSqWuyoGJMZL6xldXw6hIg&index=6
 
 ?>
 
@@ -11,28 +15,21 @@ $name = "Victor";
 
 <head>
 	<meta charset="UTF-8">
-	<title>Home</title>
-	<link rel="stylesheet" href="style.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
 </head>
 
 <body>
-	<main class="container">
-		<h1>Home</h1>
 
-		<?php if ($name != ""): ?>
-			<p>Welcome to the home page, <?= $name ?></p>
-		<?php else: ?>
-			<p>Welcome to the home page.</p>
-		<?php endif; ?>
-	</main>
+	<p><?= CURSO ?></p>
+	<p><?= ANIMALES[0] ?></p>
+	<p><?= PHP_VERSION ?></p>
+	<p><?= PHP_OS ?></p>
+	<p><?= PHP_EXTENSION_DIR ?></p>
+	<p><?= PHP_SAPI ?></p>
+	<p><?= __LINE__ ?></p>
+	<p><?= __FILE__ ?></p>
+
 </body>
-
-<style>
-	.container {
-		max-width: 1200px;
-		margin: 0 auto;
-		text-align: center;
-	}
-</style>
 
 </html>
