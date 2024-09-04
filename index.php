@@ -2,29 +2,21 @@
 
 declare(strict_types=1);
 
-// Operadores de comparación
-// == igual, === identico, != diferente, <> diferente, !== no identico, < menor que, > mayor que, <= menor o igual que, >= mayor o igual que
-$a = 1;
-$b = 1;
+// Operadores de asignación
+// =, +=, -=, *=, /=, %=
 
-var_dump($a === $b); // false
-var_dump($a !== $b); // true
-var_dump($a < $b); // false
-var_dump($a > $b); // false
-var_dump($a <= $b); // true
-var_dump($a >= $b); // true
+echo $variable = 10;
+echo "\n";
+echo $variable += 5; // $variable = $variable + 5;
+echo "\n";
+echo $variable -= 5; // $variable = $variable - 5;
+echo "\n";
+echo $variable *= 5; // $variable = $variable * 5;
+echo "\n";
+echo $variable /= 5; // $variable = $variable / 5;
+echo "\n";
+echo $variable %= 5; // $variable = $variable % 5;
 
-// Operadores logicos
-// and, &&, or, ||, xor, !, and, or
-$numero = 10;
-$minimo = 0;
-$maximo = 100;
-
-if ($numero >= $minimo && $numero <= $maximo) {
-	echo "Dentro del rango";
-} else {
-	echo "Fuera del rango";
-}
 
 ?>
 
