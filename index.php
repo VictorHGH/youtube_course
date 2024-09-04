@@ -2,17 +2,29 @@
 
 declare(strict_types=1);
 
-// Operadores matemáticos
-// + - * / % ** ()
-// orden de precedencia
-// () ** * / % + -
+// Operadores de comparación
+// == igual, === identico, != diferente, <> diferente, !== no identico, < menor que, > mayor que, <= menor o igual que, >= mayor o igual que
+$a = 1;
+$b = 1;
 
-$a = 2;
-$b = 5;
+var_dump($a === $b); // false
+var_dump($a !== $b); // true
+var_dump($a < $b); // false
+var_dump($a > $b); // false
+var_dump($a <= $b); // true
+var_dump($a >= $b); // true
 
-$c = $a % $b;
+// Operadores logicos
+// and, &&, or, ||, xor, !, and, or
+$numero = 10;
+$minimo = 0;
+$maximo = 100;
 
-echo $c;
+if ($numero >= $minimo && $numero <= $maximo) {
+	echo "Dentro del rango";
+} else {
+	echo "Fuera del rango";
+}
 
 ?>
 
