@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-// Tipos de datos
-$numero = 123; // Integer (int)
-$decimal = 123.45; // Float (float)
-$cadena = "Hola mundo"; // String (string)
-$bool = true; // Boolean (bool)
+// Operadores matemáticos
+// + - * / % ** ()
+// orden de precedencia
+// () ** * / % + -
 
-echo "El núnero decimal es $decimal\n";
-echo "El nombre de este man es \"Victor\"\n";
+$a = 2;
+$b = 5;
 
-echo $bool;
+$c = $a % $b;
 
+echo $c;
 
 ?>
 
