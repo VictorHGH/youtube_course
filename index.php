@@ -2,11 +2,17 @@
 
 declare(strict_types=1);
 
-const CURSO = "PHP 8 desde cero";
+// Tipos de datos
+$numero = 123; // Integer (int)
+$decimal = 123.45; // Float (float)
+$cadena = "Hola mundo"; // String (string)
+$bool = true; // Boolean (bool)
 
-const ANIMALES = ["Perro", "Gato", "Pájaro"];
-// Siguiente capítulo:
-// https://www.youtube.com/watch?v=ulYkNaB7cAQ&list=PLZ2ovOgdI-kUSqWuyoGJMZL6xldXw6hIg&index=6
+echo "El núnero decimal es $decimal\n";
+echo "El nombre de este man es \"Victor\"\n";
+
+echo $bool;
+
 
 ?>
 
@@ -21,14 +27,6 @@ const ANIMALES = ["Perro", "Gato", "Pájaro"];
 
 <body>
 
-	<p><?= CURSO ?></p>
-	<p><?= ANIMALES[0] ?></p>
-	<p><?= PHP_VERSION ?></p>
-	<p><?= PHP_OS ?></p>
-	<p><?= PHP_EXTENSION_DIR ?></p>
-	<p><?= PHP_SAPI ?></p>
-	<p><?= __LINE__ ?></p>
-	<p><?= __FILE__ ?></p>
 
 </body>
 
