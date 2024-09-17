@@ -1,0 +1,9 @@
+# /home/victorhgh/Documents/programacion/php/youtube_course/youtube_course.yml
+
+name: youtube_course
+root: ~/Documents/programacion/php/youtube_course/
+windows:
+  - YT_course:
+      layout: main-vertical
+      panes:
+        - bash ./move_windows.sh && vic
