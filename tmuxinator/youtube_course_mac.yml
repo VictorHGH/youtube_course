@@ -1,6 +1,6 @@
 # /home/victorHGH/Documents/programacion_2.0/php/PHP_YT_Course/youtube_course_mac.yml
 
-name: youtube_course_mac
+name: YT-Course
 root: ~/Documents/programacion_2.0/php/PHP_YT_Course/
 windows:
   - Editor:

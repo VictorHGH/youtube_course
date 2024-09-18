@@ -1,6 +1,6 @@
 # /home/victorhgh/Documents/programacion/php/youtube_course/youtube_course_arch.yml
 
-name: youtube_course_arch
+name: YT-Course
 root: ~/Documents/programacion/php/youtube_course/
 windows:
   - YT_course:
