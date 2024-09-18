@@ -6,4 +6,4 @@ windows:
   - YT_course:
       layout: 4ab8,179x55,0,0[179x47,0,0,0,179x7,0,48,1]
       panes:
-        - bash ./tmuxinator/move_windows.sh ; clear ; vic
+        - xs ; bash ./tmuxinator/move_windows.sh ; clear ; vic
