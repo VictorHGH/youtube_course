@@ -1,4 +1,4 @@
-# /home/victorhgh/Documents/programacion/php/youtube_course/youtube_course.yml
+# /home/victorhgh/Documents/programacion/php/youtube_course/youtube_course_arch.yml
 
 name: youtube_course_arch
 root: ~/Documents/programacion/php/youtube_course/
@@ -6,5 +6,4 @@ windows:
   - YT_course:
       layout: 4ab8,179x55,0,0[179x47,0,0,0,179x7,0,48,1]
       panes:
-        - vic
-        - bash ./tmuxinator/move_windows.sh ; clear
+        - bash ./tmuxinator/move_windows.sh ; clear ; vic
