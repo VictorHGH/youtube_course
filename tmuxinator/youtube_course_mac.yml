@@ -1,4 +1,4 @@
-# /home/victorhgh/Documents/programacion_2.0/php/PHP_YT_Course/youtube_course_mac.yml
+# /home/victorHGH/Documents/programacion_2.0/php/PHP_YT_Course/youtube_course_mac.yml
 
 name: youtube_course_mac
 root: ~/Documents/programacion_2.0/php/PHP_YT_Course/
@@ -7,4 +7,4 @@ windows:
       layout: 4ab8,179x55,0,0[179x47,0,0,0,179x7,0,48,1]
       panes:
         - vic
-        - bash ./move_windows.sh ; php -S localhost:8000
+        - php -S localhost: 8000 ; bash ./tmuxinator/move_windows.sh

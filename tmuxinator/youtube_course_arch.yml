@@ -6,4 +6,4 @@ windows:
   - YT_course:
       layout: main-vertical
       panes:
-        - bash ./move_windows.sh && vic
+        - bash ./tmuxinator/move_windows.sh ; vic
