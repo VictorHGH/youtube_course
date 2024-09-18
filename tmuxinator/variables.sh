@@ -13,5 +13,3 @@ else
     echo "Unsupported operating system"
     exit 1
 fi
-
-exoprt link1, link2
