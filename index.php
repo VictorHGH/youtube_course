@@ -2,19 +2,46 @@
 
 declare(strict_types=1);
 
-// Estructuras repetitivas
-$base = 5;
-$exp = 4;
-
-$resultado = 1;
-$i = 1;
-
-while ($i <= $exp) {
-	$resultado *= $base;
-	$i++;
+// Estructuras repetitivas 2
+for ($i = 1; $i <= $exp; $i++) {
+	$resultado = $resultado * $base;
 }
 
-echo "El resultado es: " . $resultado;
+$filas = 10;
+$str = "";
+
+for ($i = 1; $i <= $filas; $i++) {
+	echo $str .= "*";
+	echo "<br>";
+}
+
+echo "<br>";
+
+$nombres = ["Victor", "Hugo", "Pedro", "Juan", "Carlos", "Luis", "Fernando", "Daniel", "Alberto", "Jose"];
+
+function ast(int $len) {
+	$str = "";
+
+	for ($i = 1; $i <= $len; $i++) {
+		$str .= "*";
+	}
+
+	echo $str;
+	echo "<br>";
+}
+
+foreach ($nombres as $nombre) {
+
+	$len = strlen($nombre);
+
+	ast($len);
+	echo $nombre . "<br>";
+	ast($len);
+
+	$len = 0;
+
+	echo "<br>";
+}
 
 ?>
 
@@ -29,6 +56,7 @@ echo "El resultado es: " . $resultado;
 
 <body>
 
+	<h1>Resultado: <?php echo $resultado; ?></h1>
 
 </body>
 
