@@ -2,43 +2,24 @@
 
 declare(strict_types=1);
 
-// Estructuras repetitivas 2
+// Brake and Continue
 
-$filas = 6;
-$str = "";
-
-for ($i = 1; $i <= $filas; $i++) {
-	echo $str .= "*";
-	echo "<br>";
-}
-
-echo "<br>";
-
-$nombres = ["Victor", "Hugo", "Pedro", "Juan", "Carlos", "Luis", "Fernando", "Daniel", "Alberto", "Jose"];
-
-function ast(int $len) {
-	$str = "";
-
-	for ($i = 1; $i <= $len; $i++) {
-		$str .= "*";
+for ($i = 1; $i <= 20; $i++) {
+	if ($i == 18) {
+		echo "<br>";
+		break;
 	}
 
-	echo $str;
-	echo "<br>";
+	if ($i == 7 or $i == 15) {
+		echo "<br>";
+		continue;
+	}
+
+	echo $i . "<br>";
 }
 
-foreach ($nombres as $nombre) {
+echo "Saliste del bucle";
 
-	$len = strlen($nombre);
-
-	ast($len);
-	echo $nombre . "<br>";
-	ast($len);
-
-	$len = 0;
-
-	echo "<br>";
-}
 
 ?>
 
