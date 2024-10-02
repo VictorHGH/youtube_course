@@ -3,11 +3,8 @@
 declare(strict_types=1);
 
 // Estructuras repetitivas 2
-for ($i = 1; $i <= $exp; $i++) {
-	$resultado = $resultado * $base;
-}
 
-$filas = 10;
+$filas = 6;
 $str = "";
 
 for ($i = 1; $i <= $filas; $i++) {
@@ -55,8 +52,6 @@ foreach ($nombres as $nombre) {
 </head>
 
 <body>
-
-	<h1>Resultado: <?php echo $resultado; ?></h1>
 
 </body>
 
