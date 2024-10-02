@@ -13,3 +13,6 @@ else
 fi
 
 link2="https://www.youtube.com/watch?v=MO93xlhq5ZE&list=PLZ2ovOgdI-kUSqWuyoGJMZL6xldXw6hIg&index=15"
+
+export link1
+export link2
