@@ -10,7 +10,7 @@
 
 <body>
 
-	<form action="05_procesar.php" method="POST" enctype"multipart/form-data">
+	<form action="05_procesar.php" method="POST" enctype="multipart/form-data">
 		<label>
 			Nombre:
 			<input type="text" name="name">
@@ -27,7 +27,12 @@
 		<br>
 
 		<p>Sexo:</p>
-		<label>
+		<select name="sexo">
+			<option value="masculino">Masculino</option>
+			<option value="femenino">Femenino</option>
+		</select>
+
+		<!-- <label>
 			<input type="radio" name="sexo" value='masculino'>
 			Masculino
 		</label>
@@ -35,7 +40,7 @@
 		<label>
 			<input type="radio" name="sexo" value='femenino'>
 			Femenino
-		</label>
+		</label> -->
 
 		<br>
 
@@ -63,6 +68,11 @@
 			<br>
 			<input type="file" name="image">
 		</label>
+
+		<br>
+		<br>
+
+		<textarea name="mensaje" id="mensaje" cols="30" rows="10"></textarea>
 
 		<br>
 		<br>
