@@ -4,14 +4,8 @@ declare(strict_types=1);
 
 class Persona
 {
-	public function __construct(
-		private string $nombre,
-		public string $apellido,
-		public int $edad,
-	) {
-		$this->nombre = strtolower($nombre);
-		$this->apellido = strtolower($apellido);
-	}
+	public string $nombre, $apellido1, $apellido2;
+	public int $edad;
 
 	public function setNombre(string $nombre): string
 	{
@@ -23,6 +17,35 @@ class Persona
 	public function getNombre(): string
 	{
 		$this->nombre = ucwords($this->nombre);
+
 		return $this->nombre;
+	}
+
+	public function setApellidos(string $apellido1, string $apellido2): void
+	{
+		$this->apellido1 = strtolower($apellido1);
+		$this->apellido2 = strtolower($apellido2);
+	}
+
+	public function getApellidos(): string
+	{
+		$this->apellido1 = ucwords($this->apellido1);
+		$this->apellido2 = ucwords($this->apellido2);
+
+		return $this->apellido1 . ' ' . $this->apellido2;
+	}
+}
+
+class Peruano extends Persona {
+	public string $departamento, $ciudad;
+}
+
+class Chileno extends Persona {
+	public string $comuna, $region;
+
+	public function setApellidos(string $apellido1, string $apellido2): void
+	{
+		$this->apellido1 = strtolower($apellido2);
+		$this->apellido2 = strtolower($apellido1);
 	}
 }
