@@ -41,6 +41,12 @@ class Persona
 class Peruano extends Persona
 {
 	public string $departamento, $ciudad;
+
+	public function SetApellidos(string $apellido1, string $apellido2)
+	{
+		parent::SetApellidos($apellido1, $apellido2);
+		echo "La asignacion a sido correcta<br>";
+	}
 }
 
 class Chileno extends Persona
