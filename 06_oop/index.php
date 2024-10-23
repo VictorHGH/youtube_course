@@ -3,14 +3,25 @@
 declare(strict_types=1);
 
 require_once 'clases/personas.php';
+require_once 'clases/visibility.php';
 
+
+echo "<h2>Clase de clases</h2>";
 /* $peruano = new Peruano;
 $peruano->setNombre('Victor Hugo'); */
 
-$chileno = new Chileno();
+$peruano = new Peruano;
 
-$chileno->setApellidos('González', 'Hernández');
+$peruano->setApellidos('González', 'Hernández');
 
-$chileno->getApellidos();
+echo $peruano->getApellidos();
 
-var_dump($chileno);
+/* var_dump($chileno); */
+
+echo "<h2>Clase de visibilidad</h2>";
+
+$obj = new MyClass();
+
+$obj2 = new MyClass2();
+
+$obj2->printHello();
