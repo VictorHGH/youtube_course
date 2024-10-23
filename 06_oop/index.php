@@ -7,7 +7,7 @@ require_once 'clases/personas.php';
 /* $peruano = new Peruano;
 $peruano->setNombre('Victor Hugo'); */
 
-$chileno = new Chileno;
+$chileno = new Chileno();
 
 $chileno->setApellidos('González', 'Hernández');
 
