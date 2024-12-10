@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 require_once 'clases/personas.php';
 require_once 'clases/visibility.php';
+require_once 'clases/interfaces.php';
 
 
 echo "<h2>Clase de clases</h2>";
@@ -25,3 +26,9 @@ $obj = new MyClass();
 $obj2 = new MyClass2();
 
 $obj2->printHello();
+
+echo "<h2>Clase de interfaces</h2>";
+
+$template = new d();
+
+$template->prueba3();
