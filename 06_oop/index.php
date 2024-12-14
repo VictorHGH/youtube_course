@@ -5,6 +5,7 @@ declare(strict_types=1);
 require_once 'clases/personas.php';
 require_once 'clases/visibility.php';
 require_once 'clases/interfaces.php';
+require_once 'clases/clase_abstracta.php';
 
 
 echo "<h2>Clase de clases</h2>";
@@ -32,3 +33,9 @@ echo "<h2>Clase de interfaces</h2>";
 $template = new d();
 
 $template->prueba3();
+
+echo "<h2>Clase de clases abstractas</h2>";
+
+$template = new MiClaseAbstracta();
+
+$template->imprimir();
