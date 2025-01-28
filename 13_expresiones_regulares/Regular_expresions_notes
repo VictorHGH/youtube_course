@@ -1,0 +1,40 @@
+. = Any one character
+* = Match any number of previous (including 0)
+\+ = Match any number of previous 
+$ = End of the line
+^ = Beginning of the line
+\S = Any non-white space character
+\s = Any white space character
+\? = last character optional
+[a-z] = Any lowercase letter
+[A-Z] = Any uppercase letter
+[A-Za-z] = Any letter
+[0-9] = Any number
+\w = Any word character
+\W = Any non-word character
+\d = Any digit
+\D = Any non-digit
+\b = Any word boundary
+\B = Any non-word boundary
+\A = Beginning of the string
+\Z = End of the string
+\z = End of the string
+\G = End of the previous match
++ = Match one or more times
+? = Match zero or one time
+{n} = Match exactly n times
+{n,} = Match n or more times
+{n,m} = Match n to m times
+{n,m}? = Match n to m times, but not more than m times
+{n,m}+ = Match n to m times, but not less than m times
+{n,m}{n,m} = Match n to m times, but not less than m times
+(?=pattern) = Lookahead
+(?!pattern) = Lookbehind
+(?<=pattern) = Lookbehind
+(?<!pattern) = Lookahead
+(?P<name>pattern) = Named group
+(?P=name) = Named group
+(?#...) = Comment
+i = Case insensitive
+m = Multiline
+| = Or
