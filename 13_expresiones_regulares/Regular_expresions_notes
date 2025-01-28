@@ -34,6 +34,7 @@ $ = End of the line
 (?<!pattern) = Lookahead
 (?P<name>pattern) = Named group
 (?P=name) = Named group
+(?:pattern) = Non-capturing group
 (?#...) = Comment
 i = Case insensitive
 m = Multiline
