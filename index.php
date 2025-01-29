@@ -2,7 +2,7 @@
 	<h1>Youtube Course</h1>
 	<main class="container">
 		<a href="https://www.youtube.com/playlist?list=PLZ2ovOgdI-kUSqWuyoGJMZL6xldXw6hIg" target="_blank">
-			<img src="./imagenes/playlist.avif" alt="Imagen de la playlist de youtube">
+			<img src="./imagenes/playlist.jpg" alt="Imagen de la playlist de youtube">
 		</a>
 		<a class="next-class" href="./14_sql/">Next class -></a>
 	</main>
