@@ -12,7 +12,7 @@ else
     exit 1
 fi
 
-link2="https://www.youtube.com/watch?v=imU-gC8JpoQ&list=PLZ2ovOgdI-kUSqWuyoGJMZL6xldXw6hIg&index=52"
+link2="https://www.youtube.com/watch?v=KhIDv-ViHBU&list=PLZ2ovOgdI-kUSqWuyoGJMZL6xldXw6hIg&index=56"
 
 export link1
 export link2
