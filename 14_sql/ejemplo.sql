@@ -19,3 +19,13 @@ INSERT INTO ejemplo.`contactos` (`id`, `nombre`, `apellidos`, `direccion`, `tele
 (3, 'Irma', 'Flores Fuentes', 'Calle falsa 3493', '5530483713', 'irma@outlook.com', '1990-03-11', 0),
 (4, 'Joel', 'Cordova', 'Calle falsa 3013', '5539294956', 'joel@gmail.com', '1996-01-01', 1),
 (5, 'Zolia', 'Flores Peche', 'Calle falsa 3345', '5530130460', 'zolia@outlook.com', '1991-02-03', 0);
+
+CREATE TABLE ejemplo.reuniones (
+id INT NOT NULL AUTO_INCREMENT, 
+fecha_hora DATETIME NOT NULL, 
+lugar VARCHAR(256) NOT NULL, 
+anotaciones VARCHAR(256) DEFAULT NULL, 
+contactos_id INT NOT NULL, 
+primary key(id),
+foreign key(contactos_id) references ejemplo.contactos(id)
+);
