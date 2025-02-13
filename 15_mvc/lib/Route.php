@@ -22,12 +22,19 @@ class Route {
 		$method = $_SERVER['REQUEST_METHOD'];
 
 		foreach(self::$routes[$method] as $route => $callback){
-			if ($route === $uri){
+
+			if (strpos($route, ':') !== false){
+				$route = preg_replace('#^:[a-zA-Z]+#', '[a-zA-Z]+', $route);
+
+				echo $route;
+				return;
+			}
+
+			if (preg_match("#^$route$#", $uri)){
 				$callback();
 				return;
-			} 
+			}
 		}
-
 		echo "404 Not Found";
 	}
 }

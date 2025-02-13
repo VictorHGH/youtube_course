@@ -14,4 +14,8 @@ Route::get('/about', function(){
 	echo 'Hola desde la página about';
 });
 
+Route::get('/curses/:slug', function(){
+
+});
+
 Route::dispatch();
