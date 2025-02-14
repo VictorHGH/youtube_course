@@ -3,19 +3,22 @@
 use lib\Route;
 
 Route::get('/', function(){
-	echo 'Hola desde la página principal';
+	return [
+		'title' => 'Home',
+		'content' => 'Hola desde la página principal'
+	];
 });
 
 Route::get('/contact', function(){
-	echo 'Hola desde la página contact';
+	return 'Hola desde la página contact';
 });
 
 Route::get('/about', function(){
-	echo 'Hola desde la página about';
+	return 'Hola desde la página about';
 });
 
-Route::get('/curses/:slug', function(){
-
+Route::get('/courses/:slug', function($slug){
+	return 'El curso es: ' . $slug;
 });
 
 Route::dispatch();
