@@ -24,17 +24,27 @@ class Route {
 		foreach(self::$routes[$method] as $route => $callback){
 
 			if (strpos($route, ':') !== false){
-				$route = preg_replace('#^:[a-zA-Z]+#', '[a-zA-Z]+', $route);
-
-				echo $route;
-				return;
+				$route = preg_replace('#:[a-zA-Z]+#', '([a-zA-Z]+)', $route);
 			}
 
-			if (preg_match("#^$route$#", $uri)){
-				$callback();
+			if (preg_match("#^$route$#", $uri, $matches)){
+				/* $callback(); */
+
+				$params = array_slice($matches, 1);
+
+				$response = $callback(...$params);
+
+				if (is_array($response) || is_object($response)){
+					header('Content-Type: application/json');
+					echo json_encode($response);
+				} else {
+					echo $response;
+				}
+
 				return;
 			}
 		}
+		echo $uri . "<br>";
 		echo "404 Not Found";
 	}
 }
