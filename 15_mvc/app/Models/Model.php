@@ -28,8 +28,19 @@ class Model {
 
 	}
 
-	public function query(string $sql) : self {
-		$this->query = $this->connection->query($sql);
+	public function query(string $sql, ?array $data = [], string $params = null) : self {
+		if ($data){
+			if($params === null){
+				$params = str_repeat('s', count($data));
+			}
+			$stmt = $this->connection->prepare($sql);
+			$stmt->bind_param($params, ...$data);
+			$stmt->execute();
+
+			$this->query = $stmt->get_result();
+		} else {
+			$this->query = $this->connection->query($sql);
+		}
 		return $this;
 	}
 
@@ -50,32 +61,33 @@ class Model {
 	}
 
 	public function find(string $id) : ?array {
-		$sql = "SELECT * FROM {$this->table} WHERE id = {$id}";
-		return $this->query($sql)->first();
+		$sql = "SELECT * FROM {$this->table} WHERE id = ?";
+		return $this->query($sql, [$id], 'i')->first();
 	}
 
-	public function where(string $column, string $operator, string $value = null) {
+	public function where(string $column, string $operator, string $value = null) : self {
 
 		if ($value === null) {
 			$value = $operator;
 			$operator = '=';
 		}
 
-		$value = $this->connection->real_escape_string($value);
+		$sql = "SELECT * FROM {$this->table} WHERE {$column} {$operator} ?";
 
-		$sql = "SELECT * FROM {$this->table} WHERE {$column} {$operator} '{$value}'";
-		$this->query($sql);
+		$this->query($sql, [$value]);
+
 		return $this;
 	}
 
 	public function create(?array $data): ?array {
 		$columns = implode(', ', array_keys($data));
-		$values = "'" . implode("', '", array_values($data)) . "'";
+		$values = array_values($data);
 
-		$sql = "INSERT INTO {$this->table} ({$columns}) VALUES ({$values})";
-		$this->query($sql);
+		$sql = "INSERT INTO {$this->table} ({$columns}) VALUES (" . str_repeat('?, ', count($values) - 1) . "?)";
+
+		$this->query($sql, $values);
+
 		$insert_id = $this->connection->insert_id;
-
 		return $this->find($insert_id);
 	}
 
