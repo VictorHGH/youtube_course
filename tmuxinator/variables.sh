@@ -6,7 +6,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 	link1="localhost:8000"
 elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
     # Linux
-	link1="localhost/youtube_course"
+	link1="mvc.test"
 else
     echo "Unsupported operating system"
     exit 1
