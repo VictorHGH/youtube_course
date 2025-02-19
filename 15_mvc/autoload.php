@@ -7,7 +7,7 @@ spl_autoload_register(function($clase){
 	if (file_exists($ruta)){
 		require_once $ruta;
 	} else {
-		die("No se pudo cargar la clase $clase");
+		throw new Exception("No se pudo cargar la clase $clase. Archivo no encontrado: $ruta.");
 	}
 
 });
