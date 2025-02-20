@@ -92,16 +92,22 @@ class Model {
 	}
 
 	public function update( string $id, ?array $data) : ?array {
-		// UPDATE table SET column1='value1', column2='value2' WHERE id=1
+		// UPDATE table SET column1= ?, column2= ? WHERE id=1
 		
 		$fields = [];
-		foreach ($data as $key => $value) {
-			$fields[] = "{$key} = '{$value}'";
-		}
-		$columns = implode(', ', $fields);
 
-		$sql = "UPDATE {$this->table} SET {$columns} WHERE id = {$id}";
-		$this->query($sql);
+		foreach ($data as $key => $value) {
+			$fields[] = "{$key} = ?";
+		}
+
+		$fields = implode(', ', $fields);
+
+		$sql = "UPDATE {$this->table} SET {$fields} WHERE id = ?";
+
+		$values = array_values($data);
+		$values[] = $id;
+
+		$this->query($sql, $values);
 
 		return $this->find($id);
 	}
@@ -109,7 +115,7 @@ class Model {
 	public function delete(string $id) {
 		// Delete from table where id = 1
 
-		$sql = "DELETE FROM {$this->table} WHERE id = {$id}";
-		$this->query($sql);
+		$sql = "DELETE FROM {$this->table} WHERE id = ?";
+		$this->query($sql, [$id], 'i');
 	}
 }
