@@ -5,7 +5,7 @@ namespace lib;
 class Route {
 	private static $routes = [];
 
-	public static function get($uri, $callback){
+	public static function get($uri, $callback) {
 		$uri = trim($uri, '/');
 		self::$routes['GET'][$uri] = $callback;
 	}
