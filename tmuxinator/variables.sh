@@ -3,10 +3,10 @@
 # Detect the operating system
 if [[ "$OSTYPE" == "darwin"* ]]; then
     # macOS
-	link1="localhost:8000"
+	link1="mvc.test:8080"
 elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
     # Linux
-	link1="mvc.test"
+	link1="mvc.test:8080"
 else
     echo "Unsupported operating system"
     exit 1
