@@ -12,6 +12,7 @@
 		<h1>Hola desde la página de Home</h1>
 		<p>Título: <?= $title ?></p>
 		<p>Descripción: <?= $description ?></p>
+		<a href="/contacts">Pagina de contactos</a>
 	</body>
 
 </html>
