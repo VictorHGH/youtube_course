@@ -10,6 +10,8 @@
 	<body>
 		<h1>Listado de contactos</h1>
 
+		<a href="/contacts/create">Crear contacto</a>
+
 		<ul>
 		<?php foreach ($contacts as $contact): ?>
 			<li>

@@ -15,24 +15,44 @@ class ContactsController extends Controller {
 		return $this->view('contacts/index', compact('contacts'));
 	}
 
-	public function create() {
-		return "Aquí se mostrará el formulario para crear un contacto";
+	public function create() : string {
+		return $this->view('contacts/create');
 	}
 
 	public function store() {
-		return "Aquí se procesará el formulario para crear un contacto";
+		$data = $_POST;
+
+		$model = new Contact();
+
+		$model->create($data);
+
+		return $this->redirect('/contacts');
 	}
 
 	public function show($id) {
-		return "Aquí se mostrará el contacto con el id: $id";
+		$model = new Contact();
+
+		$contact = $model->find($id);
+
+		return $this->view('contacts/show', compact('contact'));
 	}
 
 	public function edit($id) {
-		return "Aquí se mostrará el formulario para editar el contacto con el id: $id";
+
+		$model = new Contact();
+		$contact = $model->find($id);
+
+		return $this->view('contacts/edit', compact('contact'));
 	}
 
 	public function update($id) {
-		return "Aquí se procesará el formulario para editar el contacto con el id: $id";
+		$data = $_POST;
+
+		$model = new Contact();
+		$model->update($id, $data);
+
+		$this->redirect("/contacts/{$id}");
+		
 	}
 
 	public function destroy($id) {
