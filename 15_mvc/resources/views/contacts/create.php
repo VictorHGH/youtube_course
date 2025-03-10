@@ -9,8 +9,8 @@
 
 	<body>
 		<div class="main">		
+			<h1>Crear contacto</h1>
 			<div class="container">
-				<h1>Crear contacto</h1>
 
 				<form action="/contacts" method="post">
 					<div class="input">
@@ -35,16 +35,15 @@
 	</body>
 
 	<style>
+		h1 {
+			text-align: center;
+		}
 
 		.main{
-			content: "";
 			display: flex;
 			flex-direction: column;
 			align-items: center;
 			justify-content: center;
-			width: 100%;
-			height: 97dvh;
-			background-color: black;
 		}
 
 		.container{
@@ -53,10 +52,10 @@
 			align-items: center;
 			justify-content: center;
 			margin: auto;
-			background-color: #f2f2f2;
-			width: 300px;
-			height: 300px;
-			padding-bottom: 30px;
+			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+			border-radius: 10px;
+			background-color: #fbfaf8;
+			padding: 25px;
 		}
 
 		.input{
@@ -65,21 +64,24 @@
 
 		.input label {
 			display: block;
+			margin-bottom: 5px;
 		}
 
 		.input input {
 			border-radius: 5px;
-			border: 1px solid #ccc;
+			border: none;
+			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 			height: 20px;
-			padding: 5px;
+			padding: 8px;
 		}
 
 		.submit-button{
 			width: 100%;
 			padding: 5px;
 			background-color: lightgreen;
-			border: 1px solid #ccc;
 			border-radius: 5px;
+			border: none;
+			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 		}
 
 	</style>	

@@ -10,79 +10,106 @@
 	<body>
 		<h1>Detalle de contacto</h1>
 
-		<div class="card-container">
+		<div class="main">
+			<div class="card-container">
 
-			<div class="card-info">
-				<div class="image"></div>
+				<div class="card-info">
+					<div class="image"></div>
 
-				<div class="info">
-					<p><strong>Nombre: </strong> <?= $contact['name'] ?></p>
-					<p><strong>Email: </strong> <?= $contact['email'] ?></p>
-					<p><strong>Phone: </strong> <?= $contact['phone'] ?></p>
+					<div class="info">
+						<p><strong>Nombre: </strong> <?= $contact['name'] ?></p>
+						<p><strong>Email: </strong> <?= $contact['email'] ?></p>
+						<p><strong>Phone: </strong> <?= $contact['phone'] ?></p>
+					</div>
 				</div>
-			</div>
 
-			<div class="links">
-				<a class="back-button" href="/contacts">volver</a>
-				<a class="edit-button" href="/contacts/<?=$contact['id']?>/edit">Editar</a>
+				<div class="links">
+					<a class="back-button" href="/contacts">volver</a>
+					<a class="edit-button" href="/contacts/<?=$contact['id']?>/edit">Editar</a>
+					<form action="/contacts/<?=$contact['id']?>/delete" method="post">
+						<button class="delete-button">Eliminar</button>
+					</form>
+				</div>
 			</div>
 		</div>
 	</body>
 
 	<style>
-		h1 {
-			text-align: center;
+
+		* {
+			 box-sizing: border-box;
+			 margin: 0;
+			 padding: 0;
 		}
 
-		.card-container{
-			max-width: 400px;
-			max-height: 400px;
-			margin: 0 auto;
-			border: 1px solid #ccc;
-			border-radius: 10px;
-			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+		h1 {
+			text-align: center;
+			margin: 20px 0;
+		}
+
+		.main{
 			display: flex;
 			flex-direction: column;
 			align-items: center;
 			justify-content: center;
-			padding: 20px 0;
+		}
+
+		.card-container{
+			border-radius: 10px;
+			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			background-color: #fbfaf8;
 
 		}
 
 		.card-info {
 			display: flex;
 			align-items: center;
-			justify-content: center;;
+			justify-content: center;
+			padding: 20px;
 			width: 100%;
+		}
+
+		.info p{
+			margin: 10px;
 		}
 
 		.image {
 			content: url('https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp');
-			width: 20%;
-			height: auto;
-			padding: 20px;
+			margin-right: 20px;
+			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 		}
 
 		.links {
 			display: flex;
 			width: 100%;
 			justify-content: space-around;
+			margin: 0 20px;
 		}
 
-		.back-button, .edit-button {
+		.back-button, .edit-button, .delete-button {
 			display: block;
 			text-align: center;
 			color: black;
 			text-decoration: none;
 			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-			border: 1px solid #ccc;
 			border-radius: 5px;
 			padding: 5px 30px;
+			border: none;
 		}
 
 		.edit-button {
 			background-color: lightgreen;
 		}
+
+		.delete-button {
+			background-color: lightcoral;
+			height: 30px;
+		}
+
 	</style>
 
 </html>

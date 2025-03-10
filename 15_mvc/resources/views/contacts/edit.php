@@ -9,25 +9,27 @@
 
 	<body>
 		<h1>Editar contacto</h1>
-		<div class="container">
+		<div class="main">
+			<div class="container">
+				<form action="/contacts/<?=$contact['id']?>" method="post">
+					<div class="input">
+						<label for="name">Name:</label>
+						<input type="text" name="name" id="name" value="<?= $contact['name'] ?>">
+					</div>
 
-			<form action="/contacts/<?=$contact['id']?>" method="post">
-				<div class="input">
-					<label for="name">Name:</label>
-					<input type="text" name="name" id="name" value="<?= $contact['name'] ?>">
-				</div>
+					<div class="input">
+						<label for="email">Email:</label>
+						<input type="email" name="email" id="email" value="<?= $contact['email'] ?>">
+					</div>
 
-				<div class="input">
-					<label for="email">Email:</label>
-					<input type="email" name="email" id="email" value="<?= $contact['email'] ?>">
-				</div>
+					<div class="input">
+						<label for="phone">Phone:</label>
+						<input type="tel" name="phone" id="phone" value="<?= $contact['phone'] ?>">
+					</div>
 
-				<div class="input">
-					<label for="phone">Phone:</label>
-					<input type="tel" name="phone" id="phone" value="<?= $contact['phone'] ?>">
-				</div>
-
-				<button class='submit-button' type="submit">Actualizar</button>
+					<button class='submit-button' type="submit">Actualizar</button>
+				</form>
+			</div>
 		</div>
 
 	</body>
@@ -36,17 +38,23 @@
 		h1 {
 			text-align: center;
 		}
+
+		.main{
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+		}
+
 		.container{
 			display: flex;
 			flex-direction: column;
 			align-items: center;
 			justify-content: center;
-			margin: auto;
-			width: 300px;
-			height: 300px;
-			padding-bottom: 30px;
 			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 			border-radius: 10px;
+			background-color: #fbfaf8;
+			padding: 25px;
 		}
 
 		.input{
@@ -55,21 +63,24 @@
 
 		.input label {
 			display: block;
+			margin-bottom: 5px;
 		}
 
 		.input input {
 			border-radius: 5px;
-			border: 1px solid #ccc;
+			border: none;
+			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 			height: 20px;
-			padding: 5px;
+			padding: 8px;
 		}
 
 		.submit-button{
 			width: 100%;
 			padding: 5px;
 			background-color: lightgreen;
-			border: 1px solid #ccc;
 			border-radius: 5px;
+			border: none;
+			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 		}
 
 	</style>	
