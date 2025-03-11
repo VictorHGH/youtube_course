@@ -55,7 +55,11 @@ class Model {
 	public function paginate($cant = 15) {
 		$page = isset($_GET['page']) ? $_GET['page'] : 1;
 		$sql = "SELECT * FROM {$this->table} LIMIT " . ($page - 1) * $cant . ", {$cant}";
-		return $this->query($sql)->get();
+		$data = $this->query($sql)->get();
+
+		return [
+			'data' => $data
+		];
 	}
 
 	// Consultas
