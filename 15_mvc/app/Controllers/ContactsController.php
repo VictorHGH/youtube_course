@@ -6,11 +6,11 @@ use app\Models\Contact;
 
 class ContactsController extends Controller {
 
-	public function index() : string {
+	public function index() {
 
 		$model = new Contact();
 
-		$contacts = $model->all();
+		$contacts = $model->paginate(3);
 
 		return $this->view('contacts/index', compact('contacts'));
 	}
@@ -56,6 +56,8 @@ class ContactsController extends Controller {
 	}
 
 	public function destroy($id) {
-		return "Aquí se procesará el formulario para eliminar el contacto con el id: $id";
+		$model = new Contact();
+		$model->delete($id);
+		$this->redirect('/contacts');
 	}
 }
