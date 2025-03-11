@@ -62,6 +62,7 @@
 			align-items: center;
 			justify-content: center;
 			background-color: #fbfaf8;
+			padding: 10px;
 
 		}
 
@@ -99,6 +100,7 @@
 			border-radius: 5px;
 			padding: 5px 30px;
 			border: none;
+			margin-bottom: 20px;
 		}
 
 		.edit-button {
