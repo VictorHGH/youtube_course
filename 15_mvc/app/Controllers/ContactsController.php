@@ -10,9 +10,13 @@ class ContactsController extends Controller {
 
 		$model = new Contact();
 
-		$contacts = $model->paginate(3);
-
+		if (isset($_GET['search'])){
+			$contacts = $model->where('name', 'LIKE', '%' . $_GET['search'] . '%')->paginate(1);
+		}else{
+			$contacts = $model->paginate(1);
+		}
 		return $this->view('contacts/index', compact('contacts'));
+
 	}
 
 	public function create() : string {
