@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<input type="text">
 <html lang="en">
 
 	<head>
@@ -9,43 +9,33 @@
 	</head>
 
 	<body>
-		<h1 class="text-3xl font-bold mb-3">Listado de contactos</h1>
+		<div class="container mx-auto">
+			<h1 class="text-3xl font-bold mb-4 mt-4 ml-4">Listado de contactos</h1>
 
-		<a class="text-blue-500 border-b-2" href="/contacts/create">Crear contacto</a>
+			<form action="/contacts" class="flex mb-10">
+				<input type="text" name="search" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Escriba el contacto" required />
+				<button type="button" class="m-4 focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Buscar</button>
+			</form>
 
-		<ul class="list-disc list-inside ml-3">
-			<?php foreach ($contacts['data'] as $contact): ?>
-				<li>
-					<a href="/contacts/<?=$contact['id']?>">
-						<?=$contact['name']?>
-					</a>
-				</li>
-			<?php endforeach; ?>
-		</ul>
+			<a class="bg-blue-500 text-white ml-4 p-2 rounded-lg" href="/contacts/create">Crear contacto</a>
 
+			<ul class="list-disc list-inside ml-5 mt-4">
+				<?php foreach ($contacts['data'] as $contact): ?>
+					<li>
+						<a href="/contacts/<?=$contact['id']?>">
+							<?=$contact['name']?>
+						</a>
+					</li>
+				<?php endforeach; ?>
+			</ul>
 
+			<?php 
+				$paginate = 'contacts';
+				require_once '../resources/views/assets/pagination.php' 
+			?>
 
-		<div class="flex flex-col items-center">
-		  <!-- Help text -->
-		  <span class="text-sm text-gray-700 dark:text-gray-400">
-				Mostrando <span class="font-semibold text-gray-900 dark:text-white"><?=$contacts['from']?></span> to <span class="font-semibold text-gray-900 dark:text-white"><?=$contacts['to']?></span> of <span class="font-semibold text-gray-900 dark:text-white"><?=$contacts['total']?></span> Entradas
-		  </span>
-		  <div class="inline-flex mt-2 xs:mt-0">
-			<!-- Buttons -->
-			<a href="<?=$contacts['prev_page_url']?>" class="flex items-center justify-center px-3 h-8 text-sm font-medium text-white bg-gray-800 rounded-s hover:bg-gray-900 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
-				<svg class="w-3.5 h-3.5 me-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-				  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5H1m0 0 4 4M1 5l4-4"/>
-				</svg>
-				Prev
-			</a>
-			<a href="<?=$contacts['next_page_url']?>" class="flex items-center justify-center px-3 h-8 text-sm font-medium text-white bg-gray-800 border-0 border-s border-gray-700 rounded-e hover:bg-gray-900 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
-				Next
-				<svg class="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-				<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
-			  </svg>
-			</a>
-		  </div>
 		</div>
+
 	</body>
 
 </html>
