@@ -2,60 +2,84 @@
 
 namespace lib;
 
-class Route {
-	private static $routes = [];
+class NewRoute {
+    private static $routes = [];
 
-	public static function get($uri, $callback) {
-		$uri = trim($uri, '/');
-		self::$routes['GET'][$uri] = $callback;
-	}
+    // Método para definir rutas GET
+    public static function get($uri, $callback) {
+        self::addRoute('GET', $uri, $callback);
+    }
 
-	public static function post($uri, $callback){
-		$uri = trim($uri, '/');
-		self::$routes['POST'][$uri] = $callback;
-	}
+    // Método para definir rutas POST
+    public static function post($uri, $callback) {
+        self::addRoute('POST', $uri, $callback);
+    }
 
-	public static function dispatch(){
-		$uri = $_SERVER['REQUEST_URI'];
-		$uri = trim($uri, '/');
+    // Método privado para agregar rutas
+    private static function addRoute($method, $uri, $callback) {
+        $uri = trim($uri, '/');
+        self::$routes[$method][$uri] = $callback;
+    }
 
-		if(strpos($uri, '?')) {
-			$uri = substr($uri, 0, strpos($uri, '?'));
-		}
+    // Método para despachar la solicitud
+    public static function dispatch() {
+        // Extraer el PATH de la URL
+        $path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+        $path = trim($path, '/');
 
-		$method = $_SERVER['REQUEST_METHOD'];
+        // Obtener el método HTTP
+        $method = $_SERVER['REQUEST_METHOD'];
 
-		foreach(self::$routes[$method] as $route => $callback){
+        // Verificar si existe una ruta para el método y PATH solicitados
+        if (isset(self::$routes[$method])) {
+            foreach (self::$routes[$method] as $route => $callback) {
+                // Convertir los parámetros dinámicos (ej. :id) en expresiones regulares
+                $pattern = preg_replace('#:([a-zA-Z]+)#', '([^/]+)', $route);
+                $pattern = "#^$pattern$#";
 
-			if (strpos($route, ':') !== false){
-				$route = preg_replace('#:[a-zA-Z]+#', '([a-zA-Z0-9]+)', $route);
-			}
+                // Comprobar si la ruta coincide con el PATH
+                if (preg_match($pattern, $path, $matches)) {
+                    // Extraer los parámetros dinámicos
+                    $params = array_slice($matches, 1);
 
-			if (preg_match("#^$route$#", $uri, $matches)){
-				/* $callback(); */
+                    // Ejecutar el callback o el controlador
+                    try {
+                        if (is_callable($callback)) {
+                            $response = call_user_func_array($callback, $params);
+                        } elseif (is_array($callback)) {
+                            [$controller, $action] = $callback;
+                            $controllerInstance = new $controller();
+                            $response = call_user_func_array([$controllerInstance, $action], $params);
+                        }
 
-				$params = array_slice($matches, 1);
+                        // Manejar la respuesta
+                        self::sendResponse($response);
+                        return;
+                    } catch (\Exception $e) {
+                        self::handleError(500, $e->getMessage());
+                        return;
+                    }
+                }
+            }
+        }
 
-				if(is_callable($callback)){
-					$response = $callback(...$params);
-				}
+        // Si no se encuentra ninguna ruta, devolver un error 404
+        self::handleError(404, "Not Found");
+    }
 
-				if (is_array($callback)){
-					$controller = new $callback[0];
+    // Método para enviar la respuesta
+    private static function sendResponse($response) {
+        if (is_array($response) || is_object($response)) {
+            header('Content-Type: application/json');
+            echo json_encode($response);
+        } else {
+            echo $response;
+        }
+    }
 
-					$response = $controller->{$callback[1]}(...$params);
-				}
-
-				if (is_array($response) || is_object($response)){
-					header('Content-Type: application/json');
-					echo json_encode($response);
-				} else {
-					echo $response;
-				}
-				return;
-			}
-		}
-		echo $uri . "<br>";
-		echo "404 Not Found";
-	}
+    // Método para manejar errores
+    private static function handleError($code, $message = '') {
+        http_response_code($code);
+        echo "$code $message";
+    }
 }
