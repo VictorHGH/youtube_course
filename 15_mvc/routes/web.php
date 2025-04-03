@@ -1,17 +1,17 @@
 <?php
 
-use lib\NewRoute;
+use lib\Route;
 use app\Controllers\HomeController;
 use app\Controllers\ContactsController;
 
-NewRoute::get('/', [HomeController::class, 'index']);
+Route::get('/', [HomeController::class, 'index']);
 
-NewRoute::get('/contacts', [ContactsController::class, 'index']);
-NewRoute::get('/contacts/create', [ContactsController::class, 'create']);
-NewRoute::get('/contacts/:id', [ContactsController::class, 'show']);
-NewRoute::get('/contacts/:id/edit', [ContactsController::class, 'edit']);
-NewRoute::post('/contacts', [ContactsController::class, 'store']);
-NewRoute::post('/contacts/:id', [ContactsController::class, 'update']);
-NewRoute::post('/contacts/:id/delete', [ContactsController::class, 'destroy']);
+Route::get('/contacts', [ContactsController::class, 'index']);
+Route::get('/contacts/create', [ContactsController::class, 'create']);
+Route::get('/contacts/:id', [ContactsController::class, 'show']);
+Route::get('/contacts/:id/edit', [ContactsController::class, 'edit']);
+Route::post('/contacts', [ContactsController::class, 'store']);
+Route::post('/contacts/:id', [ContactsController::class, 'update']);
+Route::post('/contacts/:id/delete', [ContactsController::class, 'destroy']);
 
-NewRoute::dispatch();
+Route::dispatch();
