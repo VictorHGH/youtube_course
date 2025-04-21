@@ -2,7 +2,7 @@
 
 namespace lib;
 
-class NewRoute {
+class Route {
     private static $routes = [];
 
     // Método para definir rutas GET
