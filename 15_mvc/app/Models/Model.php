@@ -32,7 +32,7 @@ class Model {
 
 	}
 
-	public function query(string $sql, ?array $data = [], string $params = null) : self {
+	public function query(string $sql, ?array $data = [], ?string $params = null) : self {
 		if ($data){
 			if($params === null){
 				$params = str_repeat('s', count($data));
@@ -114,7 +114,7 @@ class Model {
 		return $this->query($sql, [$id], 'i')->first();
 	}
 
-	public function where(string $column, string $operator, string $value = null) : self {
+	public function where(string $column, string $operator, ?string $value = null) : self {
 
 		if ($value === null) {
 			$value = $operator;
